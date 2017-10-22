@@ -1,0 +1,165 @@
+@import './variables';
+@import './mixins';
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+.full-screen {
+  height: 100%;
+}
+
+body {
+  color: $darkGrey1;
+  font-family: $font-family;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+//region flex
+
+.flex {
+    display: flex;
+}
+.flex-right {
+    justify-content: flex-end;
+}
+.flex-left {
+    justify-content: flex-start;
+}
+.flex-center {
+    align-items: center;
+}
+.space-between {
+    justify-content: space-between;
+}
+.space-around {
+    justify-content: space-around;
+}
+
+//endregion
+
+
+// region margins
+
+.margin-bottom-5 {
+    margin-bottom: toRem(5);
+}
+
+.margin-bottom-10 {
+    margin-bottom: toRem(10);
+}
+
+.margin-bottom-15 {
+    margin-bottom: toRem(15);
+}
+
+.margin-bottom-20 {
+    margin-bottom: toRem(20);
+}
+
+.margin-top-5 {
+    margin-top: toRem(5);
+}
+
+.margin-top-10 {
+    margin-top: toRem(10);
+}
+
+.margin-top-15 {
+    margin-top: toRem(15);
+}
+
+.margin-top-20 {
+    margin-top: toRem(20);
+}
+
+//endregion margins
+
+.full-screen {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  >* {
+    flex: 0 0 auto;
+  }
+  >.header {
+    background-color: #252830;
+    padding: 15px 20px;
+    color: #fff;
+    #header-items {
+      display: flex;
+      list-style: none;
+    }
+  }
+  >.main {
+    flex: 1 1 auto;
+    display: flex;
+    overflow: hidden;
+    >* {
+      flex: 0 0 auto;
+      padding: toRem(10);
+    }
+    >.sidebar {
+      background-color: $lightGrey2;
+      width: 15rem;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          border-left: 2px solid transparent;
+          &:hover {
+            background-color: #E6E9ED;
+            border-left: 2px solid #4A89DC;
+          }
+          a {
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            text-transform: capitalize;
+            cursor: pointer;
+            .fa {
+              margin-right: toRem(10);
+            }
+          }
+        }
+      }
+    }
+    >.content {
+      flex: 1 1 auto;
+      overflow: auto;
+    }
+  }
+}
+
+.container {
+  margin: 0 1rem;
+}
+
+.title {
+  position: relative;
+  text-transform: capitalize;
+  &:before {
+    position: absolute;
+    top: 50%;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $lightGrey1;
+  }
+  * {
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: inline-block;
+    background-color: $white;
+    position: relative;
+    padding-right: 0.5em;
+    vertical-align: middle;
+    z-index: 2;
+  }
+}

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HeaderModule } from './header';
+import { SidebarModule } from './sidebar-nav';
 
 import { AppComponent } from './app.component';
 
@@ -8,7 +10,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HeaderModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
