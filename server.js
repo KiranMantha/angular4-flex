@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // db setup
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URL_LOCAL);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
