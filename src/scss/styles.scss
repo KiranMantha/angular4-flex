@@ -111,7 +111,8 @@ body {
         padding: 0;
         li {
           border-left: 2px solid transparent;
-          &:hover {
+          &:hover,
+          &.active {
             background-color: #E6E9ED;
             border-left: 2px solid #4A89DC;
           }
