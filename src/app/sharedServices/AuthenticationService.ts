@@ -10,6 +10,10 @@ export class AuthenticationService {
     public isAuthenticated():boolean {
         return this.user != null;
     }
+
+    public getCurrentUser(): User {
+        return this.user;
+    }
 }
 
 
