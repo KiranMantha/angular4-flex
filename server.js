@@ -7,26 +7,11 @@ const session = require('express-session');
 const mongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
 require('dotenv').config();
-
-// db setup
-var options = {
-  useMongoClient: true,
-  reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
-  reconnectInterval: 500, // Reconnect every 500ms
-  poolSize: 10, // Maintain up to 10 socket connections
-  // If not connected, return errors immediately rather than waiting for reconnect
-  bufferMaxEntries: 0
-};
-mongoose.connect(process.env.MONGO_URL_LOCAL, options);
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.log('connected to mongodb..');
-  // we're connected!
-});
+var db = require('./server/schema/schemas')(mongoose);
 
 // Get our API routes
-const api = require('./server/routes/api');
+const dashboard = require('./server/routes/dashboard');
+const orders = require('./server/routes/orders');
 
 const app = express();
 
@@ -51,8 +36,11 @@ app.use(bodyParser.urlencoded({
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// Set our api routes
-app.use('/api', api);
+// Set dashboard routes
+app.use('/dashboard', dashboard);
+
+// Set order routes
+app.use('/orders', orders)
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
