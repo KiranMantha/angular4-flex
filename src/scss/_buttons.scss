@@ -1,0 +1,35 @@
+@import './variables';
+
+//Create Array
+$btn-colors: (
+    primary $control-blue $control-blue-dark $control-text-color1,
+    success $control-green $control-green-dark $control-text-color1,
+    danger $control-red $control-red-dark $control-text-color1,
+    link $control-gray $control-gray-dark $control-text-color2
+);
+
+//Each loop to create classes
+.button {
+    border-radius: 2px;
+    padding: 6px 12px;
+    background-color: $white;
+    border: 1px solid $mediumGrey2;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+        background-color: $lightGrey2;
+        outline: none;
+    }
+    @each $type in $btn-colors {
+        &.button-#{nth($type, 1)} {
+            background-color: #{nth($type, 2)};
+            border: 1px solid #{nth($type, 3)};
+            color: #{nth($type, 4)};
+            &:hover,
+            &:focus {
+                background-color: darken(nth($type, 2), 5%);
+                outline: none;
+            }
+        }
+    }
+}

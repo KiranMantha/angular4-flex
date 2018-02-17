@@ -1,5 +1,8 @@
 @import './variables';
 @import './mixins';
+@import './buttons';
+@import './dropdown';
+@import './resp';
 * {
   margin: 0;
   padding: 0;
@@ -18,10 +21,17 @@ body {
   line-height: 1.5;
 }
 
-//region flex
+//region display utils
 
-.flex {
+.d-flex {
     display: flex;
+}
+.d-none,
+.d-mobile {
+    display: none;
+}
+.d-desktop {
+  display: block;
 }
 .flex-right {
     justify-content: flex-end;
@@ -42,38 +52,34 @@ body {
 //endregion
 
 
-// region margins
+// region margins and paddings
 
-.margin-bottom-5 {
-    margin-bottom: toRem(5);
-}
+@for $i from 1 through 20 {
+  .mt-#{$i} {
+    margin-top: toRem($i);
+  }
+  .mb-#{$i} {
+    margin-bottom: toRem($i);
+  }
+  .mr-#{$i} {
+    margin-right: toRem($i);
+  }
+  .ml-#{$i} {
+    margin-left: toRem($i);
+  }
 
-.margin-bottom-10 {
-    margin-bottom: toRem(10);
-}
-
-.margin-bottom-15 {
-    margin-bottom: toRem(15);
-}
-
-.margin-bottom-20 {
-    margin-bottom: toRem(20);
-}
-
-.margin-top-5 {
-    margin-top: toRem(5);
-}
-
-.margin-top-10 {
-    margin-top: toRem(10);
-}
-
-.margin-top-15 {
-    margin-top: toRem(15);
-}
-
-.margin-top-20 {
-    margin-top: toRem(20);
+  .pt-#{$i} {
+    padding-top: toRem($i);
+  }
+  .pb-#{$i} {
+    padding-bottom: toRem($i);
+  }
+  .pr-#{$i} {
+    padding-right: toRem($i);
+  }
+  .pl-#{$i} {
+    padding-left: toRem($i);
+  }
 }
 
 //endregion margins

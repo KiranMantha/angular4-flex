@@ -1,0 +1,42 @@
+@import './variables';
+
+.dropdown {
+    position: relative;
+    *[data-toggle^="dropdown"] {
+        & + .dropdown-menu {
+            position: absolute;
+            right: auto;
+            left: 0;
+            display: none;
+            list-style: none;
+            background-color: $white;
+            color: $font-color;
+            margin-top: 2px;
+            padding: 5px 0;
+            border-radius: 2px; 
+            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+            border: 1px solid rgba(0,0,0,.15);
+            background-clip: padding-box;
+            & * {
+                padding: 6px 12px;
+                &:hover {
+                    background-color: $lightGrey2;
+                    cursor: pointer;
+                }
+            }
+        }
+        &.right + .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+        &.left + .dropdown-menu {
+            right: auto;
+            left: 0;
+        }
+        &:focus {
+            & + .dropdown-menu {
+                display: block;
+            }
+        }
+    }
+}
