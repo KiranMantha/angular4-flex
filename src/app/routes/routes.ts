@@ -8,7 +8,7 @@ import { AuthGuard } from './authGaurd';
 export const routes: Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard], data: { roles: ['ADMIN'] } },
+    { path: 'dashboard', component: DashboardComponent, data: { roles: ['ADMIN'] } },
     { path: 'orders', component: OrdersComponent, canActivate:[AuthGuard], data: { roles: ['ADMIN', ''] } },
     { path: '**', component: ErrorRouteComponent }
 ]
