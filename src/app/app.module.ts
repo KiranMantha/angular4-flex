@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './routes/authGaurd';
+import { AuthService } from './auth.service';
 import { RouterModule } from '@angular/router';
 import { ErrorModule } from './errorRoute';
 import { LoginModule } from './login';
@@ -30,7 +32,9 @@ import { AuthenticationService } from './sharedServices/AuthenticationService';
     OrdersModule
   ],
   providers: [
-    AuthenticationService
+    AuthenticationService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
