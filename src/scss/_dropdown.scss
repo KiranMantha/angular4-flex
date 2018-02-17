@@ -2,6 +2,8 @@
 
 .dropdown {
     position: relative;
+    font-size: inherit;
+    color: $font-color;
     *[data-toggle^="dropdown"] {
         & + .dropdown-menu {
             position: absolute;
@@ -9,8 +11,7 @@
             left: 0;
             display: none;
             list-style: none;
-            background-color: $white;
-            color: $font-color;
+            background-color: $white;            
             margin-top: 2px;
             padding: 5px 0;
             border-radius: 2px; 
