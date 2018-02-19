@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 
 
 import { AuthenticationService } from './sharedServices/AuthenticationService';
+import { UIModule } from './ui-controls';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AuthenticationService } from './sharedServices/AuthenticationService';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    UIModule,
     ErrorModule,
     LoginModule,
     HeaderModule,

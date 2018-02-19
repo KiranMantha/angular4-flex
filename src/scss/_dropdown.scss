@@ -19,12 +19,16 @@
             box-shadow: 0 6px 12px rgba(0,0,0,.175);
             border: 1px solid rgba(0,0,0,.15);
             background-clip: padding-box;
-            & * {
+            & > * {
                 padding: 6px 12px;
+                white-space: nowrap;
                 &:hover {
                     background-color: $lightGrey2;
                     cursor: pointer;
                 }
+            }
+            &.open {
+                display: block;
             }
         }
         &.right + .dropdown-menu {
@@ -34,11 +38,6 @@
         &.left + .dropdown-menu {
             right: auto;
             left: 0;
-        }
-        &:focus {
-            & + .dropdown-menu {
-                display: block;
-            }
         }
     }
 }

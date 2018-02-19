@@ -3,11 +3,11 @@
     <li>Laundry</li>
   </ul>
   <div class="d-mobile dropdown">
-    <button class="button button-link right" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
+    <button class="button button-link right" dropdown data-toggle="dropdown"><i class="fa fa-bars"></i></button>
     <ul class="dropdown-menu">
-      <li>Dropdown1</li>
-      <li>Dropdown2</li>
-      <li>Dropdown3</li>
+      <li [routerLinkActive]="['active']"><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer mr-15"></i>dashboard</a></li>
+      <li [routerLinkActive]="['active']"><a [routerLink]="['/orders']"><i class="fa fa-shopping-cart mr-15"></i>orders</a></li>
+      <li><a>test</a></li>
     </ul>
   </div>  
 </div>
