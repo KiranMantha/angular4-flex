@@ -10,16 +10,17 @@ export class DropdownDirective implements OnInit {
     onClick(e:any){
         e.stopPropagation();
         this.closeAllDropdowns();
-        let el = e.target.closest('[data-toggle="dropdown"]');
-        if(el.nextElementSibling.classList.contains('open')){
-            el.nextElementSibling.classList.remove('open');
+        let el = e.target.closest('.dropdown');
+        let ddm = el.querySelector('.dropdown-menu');
+        if(ddm.classList.contains('open')){
+            ddm.classList.remove('open');
         } else {
-            el.nextElementSibling.classList.add('open');
+            ddm.classList.add('open');
         }
     }
 
     closeAllDropdowns = () => {
-        let dd = document.getElementsByClassName('dropdown-menu');
+        let dd = document.querySelectorAll('.dropdown-menu');
         for(let i=0; i<dd.length; i++) {
             dd[i].classList.remove('open');
         }
