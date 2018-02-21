@@ -1,32 +1,68 @@
-import { HostListener, Directive, OnInit } from "@angular/core";
-import { EventEmitter } from "events";
+import { HostListener, Directive, Inject, forwardRef, ContentChild, Input, Output, EventEmitter } from "@angular/core";
 
 @Directive({
-    selector: '[dropdown]'
+    selector: '[data-toggle="dropdown"]',
+    host: {
+        '(click)': 'toggleopen($event, false)'
+    }
 })
-export class DropdownDirective implements OnInit {
-    public click = new EventEmitter();
-    @HostListener('click', ['$event'])
-    onClick(e:any){
+export class DropdownToggle {
+    constructor(@Inject(forwardRef(()=> Dropdown)) public dropdown) {
+
+    }
+
+    toggleopen = (e, isoutside:boolean) => {
         e.stopPropagation();
-        this.closeAllDropdowns();
-        let el = e.target.closest('.dropdown');
-        let ddm = el.querySelector('.dropdown-menu');
-        if(ddm.classList.contains('open')){
-            ddm.classList.remove('open');
-        } else {
-            ddm.classList.add('open');
+        if(!isoutside) {
+            this.dropdown.isDropdownOpen = !this.dropdown.isDropdownOpen;
+        }
+        else { 
+            this.dropdown.isDropdownOpen = false;
         }
     }
 
-    closeAllDropdowns = () => {
-        let dd = document.querySelectorAll('.dropdown-menu');
-        for(let i=0; i<dd.length; i++) {
-            dd[i].classList.remove('open');
-        }
-    }
+}
 
-    ngOnInit(){
-        document.addEventListener('click', this.closeAllDropdowns);
+@Directive({
+    selector: '[dropdownMenu]',
+    host: {
+        '[class.open]': 'dropdown.isDropdownOpen'
+    }
+})
+export class DropdownMenu {
+    constructor(@Inject(forwardRef(()=> Dropdown)) public dropdown) {
+
+    }
+}
+
+@Directive({
+    selector: '[dropdownItem]',
+    host: {
+        '(click)': 'selectedItem()'
+    }
+})
+export class DropdownItem {
+    @Input() item:any;
+    constructor(@Inject(forwardRef(()=> Dropdown)) public dropdown) {
+
+    }
+    selectedItem = () => {
+        this.dropdown.selectedItem(this.item);
+    }
+}
+
+@Directive({
+    selector: '[dropdown]',
+    host: {
+        '(document:click)': '_toggle.toggleopen($event, true)'
+    }
+})
+export class Dropdown {
+    @ContentChild(DropdownToggle) private _toggle: DropdownToggle;
+    @Output() onSelected = new EventEmitter();
+    public isDropdownOpen: boolean = false;
+
+    selectedItem = (item:any) => {
+        this.onSelected.emit(item);
     }
 }

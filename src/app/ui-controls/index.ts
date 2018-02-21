@@ -1,8 +1,15 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
-import { DropdownDirective } from "./dropdown";
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "./dropdown";
+
+
+const NgDropdown = [Dropdown, DropdownToggle, DropdownMenu, DropdownItem];
 
 @NgModule({
-    declarations: [DropdownDirective],
-    exports: [DropdownDirective]    
+    declarations: [
+        ...NgDropdown
+    ],
+    exports: [
+        ...NgDropdown
+    ]    
 })
 export class UIModule { }

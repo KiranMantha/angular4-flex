@@ -5,5 +5,8 @@ import { Component } from '@angular/core';
     templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent {
-
+    items:string[] = ['item1', 'item2', 'item3']
+    selectedItem = (item) => {
+        console.log(item);
+    }
 }
