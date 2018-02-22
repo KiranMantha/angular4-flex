@@ -15,4 +15,12 @@ export class AuthService {
     return token ? true : false;
   }
 
+  public setAuthToken(tokenVal:string):void {
+    localStorage.setItem('token', tokenVal);
+  }
+
+  public removeAuthToken(): void {
+    localStorage.removeItem('token');
+  }
+
 }

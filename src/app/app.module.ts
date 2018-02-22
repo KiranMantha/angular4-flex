@@ -12,14 +12,15 @@ import { DashboardModule } from './dashboard';
 import { OrdersModule } from './orders';
 import { routes } from './routes/routes';
 import { AppComponent } from './app.component';
-
+import { ContentComponent } from './content/content.component';
 
 import { AuthenticationService } from './sharedServices/AuthenticationService';
 import { UIModule } from './ui-controls';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <ul>
-  <li [routerLinkActive]="['active']"><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer"></i>dashboard</a></li>
-  <li [routerLinkActive]="['active']"><a [routerLink]="['/orders']"><i class="fa fa-shopping-cart"></i>orders</a></li>
-  <li><a>test</a></li>
+  <li [routerLinkActive]="['active']"><a [routerLink]="['/app', {outlets: { 'appOutlet': ['dashboard'] }}]"><i class="fa fa-tachometer"></i>dashboard</a></li>
+  <li [routerLinkActive]="['active']"><a [routerLink]="['/app', {outlets: { 'appOutlet': ['orders'] }}]"><i class="fa fa-shopping-cart"></i>orders</a></li>
+  <li><a [routerLink]="['/login']" [queryParams]="{ logout: true }"><i class="fa fa-shopping-cart"></i>Logout</a></li>
 </ul>
