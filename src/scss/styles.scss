@@ -92,9 +92,6 @@ a {
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  >* {
-    flex: 0 0 auto;
-  }
   >.header {
     background-color: #252830;
     padding: 15px 20px;
@@ -105,9 +102,8 @@ a {
     }
   }
   >.main {
-    flex: 1 1 auto;
     display: flex;
-    overflow: hidden;
+    flex: 1 1 auto;
     & > content {
       flex: 1 1 auto;
       display: flex;
