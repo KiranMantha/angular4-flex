@@ -9,5 +9,9 @@ export class AppComponent {
   constructor(private auth:AuthService) {
 
   }
+
+  public isLoggedIn():boolean {
+    return this.auth.isAuthenticated();
+  }
   
 }

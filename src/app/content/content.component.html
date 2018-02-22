@@ -1,4 +1,5 @@
-<div>
+<div class="sidebar d-desktop" *ngIf="app.isLoggedIn()" sidebar></div>
+<div class="content">
     <router-outlet name="loginOutlet"></router-outlet>
     <router-outlet name="appOutlet"></router-outlet>
 </div>

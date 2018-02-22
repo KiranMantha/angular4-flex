@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(){
-        console.log(this.route);
         this.route.queryParams.subscribe((params) => {
             if(params['logout'] && params['logout'] === 'true') {
                 this.auth.removeAuthToken();
