@@ -2,12 +2,15 @@
   <ul id="header-items">
     <li>Laundry</li>
   </ul>
-  <div class="d-mobile dropdown">
-    <button class="button button-link right" dropdown data-toggle="dropdown"><i class="fa fa-bars"></i></button>
-    <ul class="dropdown-menu">
-      <li [routerLinkActive]="['active']"><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer mr-15"></i>dashboard</a></li>
-      <li [routerLinkActive]="['active']"><a [routerLink]="['/orders']"><i class="fa fa-shopping-cart mr-15"></i>orders</a></li>
-      <li><a>test</a></li>
+
+  <div class="d-mobile dropdown" dropdown (onSelected)="selectedItem($event)">
+    <button class="button button-link right" data-toggle="dropdown">
+        <i class="fa fa-bars"></i>
+    </button>
+    <ul dropdownMenu class="dropdown-menu">
+      <li [routerLinkActive]="['active']"><a [routerLink]="['/app', {outlets: { 'appOutlet': ['dashboard'] }}]"><i class="fa fa-tachometer mr-15"></i>dashboard</a></li>
+      <li [routerLinkActive]="['active']"><a [routerLink]="['/app', {outlets: { 'appOutlet': ['orders'] }}]"><i class="fa fa-shopping-cart mr-15"></i>orders</a></li>
+      <li><a [routerLink]="['/login']" [queryParams]="{ logout: true }"><i class="fa fa-sign-out mr-15"></i>Logout</a></li>
     </ul>
   </div>  
 </div>
