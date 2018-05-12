@@ -1,11 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const mongoose = require('mongoose'); 
-var Orders = mongoose.model('Orders');
+module.exports = (router, mongoose) => {
+    var Orders = mongoose.model('Orders');
 
-// Get all orders
-router.get('/orders', (req, res) => {
-  
-});
+    // Get all orders
+    router.get('/', (req, res) => {
+    
+    });
 
-module.exports = router;
+    return router;
+}

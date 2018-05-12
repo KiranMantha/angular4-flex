@@ -1,29 +1,31 @@
 // Get dependencies
 const express = require('express');
+const router = express.Router();
 const path = require('path');
-const http = require('http');
 const bodyParser = require('body-parser');
-const session = require('express-session');
-const mongoStore = require('connect-mongo')(session);
+//const session = require('express-session');
+//const mongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
 require('dotenv').config();
-var db = require('./server/schema/schemas')(mongoose);
+const port = process.env.PORT || '3000';
+var db = require('./schema/schemas')(mongoose);
 
 // Get our API routes
-const dashboard = require('./server/routes/dashboard');
-const orders = require('./server/routes/orders');
+const dashboard = require('./routes/dashboard')(router, mongoose);
+const orders = require('./routes/orders')(router, mongoose);
+const users = require('./routes/users')(router, mongoose);
 
 const app = express();
 
 //use sessions for tracking logins
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: true,
-  saveUninitialized: false,
-  store: new mongoStore({
-    mongooseConnection: db
-  })
-}));
+// app.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: true,
+//   saveUninitialized: false,
+//   store: new mongoStore({
+//     mongooseConnection: db
+//   })
+// }));
 
 // parse application/json
 app.use(bodyParser.json());
@@ -40,7 +42,10 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/dashboard', dashboard);
 
 // Set order routes
-app.use('/orders', orders)
+app.use('/orders', orders);
+
+//Set user routes
+app.use('/users', users);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
@@ -48,17 +53,6 @@ app.get('*', (req, res) => {
 });
 
 /**
- * Get port from environment and store in Express.
- */
-const port = process.env.PORT || '3000';
-app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-const server = http.createServer(app);
-
-/**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+app.listen(port, () => console.log(`API running on localhost:${port}`));
