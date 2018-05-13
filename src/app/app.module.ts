@@ -14,8 +14,10 @@ import { routes } from './routes/routes';
 import { AppComponent } from './app.component';
 import { ContentComponent } from './content/content.component';
 
+import { NoopInterceptor } from './interceptor.service';
 import { AuthenticationService } from './sharedServices/AuthenticationService';
 import { UIModule } from './ui-controls';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,11 @@ import { UIModule } from './ui-controls';
     OrdersModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NoopInterceptor,
+      multi: true
+    },
     AuthenticationService,
     AuthService,
     AuthGuard

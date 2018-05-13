@@ -39,13 +39,13 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set dashboard routes
-app.use('/dashboard', dashboard);
+app.use('/api/dashboard', dashboard);
 
 // Set order routes
-app.use('/orders', orders);
+app.use('/api/orders', orders);
 
 //Set user routes
-app.use('/users', users);
+app.use('/api/users', users);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
