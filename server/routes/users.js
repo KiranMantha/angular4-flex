@@ -1,6 +1,7 @@
 module.exports = (router, mongoose) => {
     const Users = mongoose.model('Users');
-    // Get all user
+
+    // Get all users
     router.get('/', (req, res) => {
     
     });
@@ -8,9 +9,7 @@ module.exports = (router, mongoose) => {
     // save user
     router.post('/register', (req, res) => {
         let userData = req.body;
-        console.log('userData: ', userData);
         let user = new Users(userData);
-        console.log('userModel Mongoose: ', user);
         user.save((err, regUser) => {
             if(err) {
                 console.log(err);
