@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { User } from './Models/user';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
+  private user: User;
+  constructor() { }
 
-  constructor() {}
-
-  // ...
   public isAuthenticated(): boolean {
 
     const token = localStorage.getItem('token');
@@ -15,12 +17,17 @@ export class AuthService {
     return token ? true : false;
   }
 
-  public setAuthToken(tokenVal:string):void {
+  public setAuthToken(tokenVal: string, user: User): void {
     localStorage.setItem('token', tokenVal);
+    this.user = user;
   }
 
   public removeAuthToken(): void {
     localStorage.removeItem('token');
+    this.user = null;
   }
 
+  public getCurrentUser(): User {
+    return this.user;
+  }
 }
