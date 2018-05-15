@@ -21,10 +21,11 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/scss/styles.scss",
-              "node_modules/font-awesome/scss/font-awesome.scss"
+              "src/scss/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/fontawesome-all.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -1,7 +1,6 @@
-//@import url('https://fonts.googleapis.com/css?family=Lato|Roboto:300,400,700');
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
 
-$fa-font-path: "../node_modules/font-awesome/fonts";
+//Set default colors
 $font-family: 'Raleway', sans-serif;
 $font-color: #434A54;
 $white: #fff;
@@ -13,15 +12,19 @@ $darkGrey1: #434A54;
 $darkGrey2: #656D78;
 $blue1: #4A89DC;
 $blue2: #5D9CEC;
+$red1: #DA4453;
+$red2: #ED5565;
+$green1: #48CFAD;
+$green2: #37BC9B;
 
 //Set control colors
-$control-text-color1:    #fff;
-$control-text-color2:    #434A54;
-$control-green:          #48CFAD;
-$control-green-dark:     #37BC9B;
-$control-blue:           #5D9CEC;
-$control-blue-dark:      #4A89DC;
-$control-gray:           #F5F7FA;
-$control-gray-dark:      #E6E9ED;
-$control-red:            #ED5565;
-$control-red-dark:       #DA4453;
+$control-text-color1:    $white;
+$control-text-color2:    $font-color;
+$control-green:          $green2;
+$control-green-dark:     $green1;
+$control-blue:           $blue2;
+$control-blue-dark:      $blue1;
+$control-gray:           $lightGrey2;
+$control-gray-dark:      $lightGrey1;
+$control-red:            $red2;
+$control-red-dark:       $red1;

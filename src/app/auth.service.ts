@@ -17,7 +17,7 @@ export class AuthService {
     return token ? true : false;
   }
 
-  public setAuthToken(tokenVal: string, user: User): void {
+  public setAuthToken(tokenVal: string, user: User = new User()): void {
     localStorage.setItem('token', tokenVal);
     this.user = user;
   }

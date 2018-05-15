@@ -1,0 +1,59 @@
+/*
+  * Basic styles, good for a large display. Everything fits in
+  * one row, no wrapping. All text based cells grow equally.
+  */
+
+// Main container - row container
+.table {
+    width: 100%
+}
+
+.table-row {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-wrap: no-wrap;
+    -webkit-flex-wrap: no-wrap;
+    padding-left: 15px;
+    padding-right: 15px;
+} 
+
+// Wrappers around cells and other wrappers
+.wrapper {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+} 
+
+// leaf level containers (cells): common properties 
+.column {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    vertical-align: top;
+}
+
+/* growable wrappers 
+ .attributes {
+   flex-grow: 1; -webkit-flex-grow: 1;
+ }
+ 
+ */
+
+.horizontal {
+    flex-direction: row;
+    -webkit-flex-direction: row;
+}
+
+.vertical {
+    // Let the wrapper flex vertically, so we get 2 rows
+    flex-direction: column;
+    -webkit-flex-direction: column; // can't have the children grow, since this now means vertical growth
+    div {
+        flex-grow: 0;
+        -webkit-flex-grow: 0;
+    }
+}

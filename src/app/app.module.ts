@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './routes/authGaurd';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NoopInterceptor } from './interceptor.service';
 
+import { NotificationsModule } from './notifications';
 import { UIModule } from './ui-controls';
 import { ErrorModule } from './errorRoute';
 import { LoginModule } from './login';
@@ -16,6 +17,7 @@ import { OrdersModule } from './orders';
 import { routes } from './routes/routes';
 import { AppComponent } from './app.component';
 import { ContentComponent } from './content/content.component';
+import { ErrorsHandler } from './errorHandler.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { ContentComponent } from './content/content.component';
     FormsModule,
     RouterModule.forRoot(routes),
     UIModule,
+    NotificationsModule.forRoot(),
     ErrorModule,
     LoginModule,
     HeaderModule,
@@ -39,6 +42,10 @@ import { ContentComponent } from './content/content.component';
       provide: HTTP_INTERCEPTORS,
       useClass: NoopInterceptor,
       multi: true
+    },
+    {
+      provide: ErrorHandler,
+      useClass: ErrorsHandler
     },
     AuthGuard
   ],
