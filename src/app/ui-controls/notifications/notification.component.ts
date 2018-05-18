@@ -11,10 +11,10 @@ import { Message } from "./message";
 export const flyInOut = trigger('flyInOut', [
     transition(':enter', [
       style({transform: 'translateX(100%)'}),
-      animate('200ms ease-in', style({transform: 'translateX(0%)'}))
+      animate('150ms ease-in', style({transform: 'translateX(0%)'}))
     ]),
     transition(':leave', [
-      animate('200ms ease-in', style({transform: 'translateX(100%)'}))
+      animate('150ms ease-in', style({transform: 'translateX(100%)'}))
     ])
 ]);
 
