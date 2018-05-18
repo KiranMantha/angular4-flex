@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationService } from '../notifications/notification.service';
+import { NotificationService } from '../ui-controls/notifications/notification.service';
 
 @Component({
     selector: 'dashboard',
@@ -13,8 +13,11 @@ export class DashboardComponent implements OnInit {
         console.log(item);
     }
 
+    sendNotification = () => {
+        this.alertService.sendMessage('Hello World', 'danger');
+    }
+
     ngOnInit(){
         this.alertService.sendMessage('Hello World', 'info');
-        this.alertService.sendMessage('Hello World', 'danger');
     }
 }

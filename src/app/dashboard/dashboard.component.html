@@ -10,6 +10,7 @@
             <li dropdownItem *ngFor="let item of items" [item]="item">{{item}}</li>
         </ul>
     </div>
+    <button class="button" (click)='sendNotification()'>send toast</button>
     <div class="table">
         <div class="table-row">
             <div class="wrapper">#</div>

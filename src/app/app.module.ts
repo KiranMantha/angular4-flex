@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './routes/authGaurd';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NoopInterceptor } from './interceptor.service';
-
-import { NotificationsModule } from './notifications';
 import { UIModule } from './ui-controls';
 import { ErrorModule } from './errorRoute';
 import { LoginModule } from './login';
@@ -26,10 +25,10 @@ import { ErrorsHandler } from './errorHandler.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    UIModule,
-    NotificationsModule.forRoot(),
+    UIModule.forRoot(),
     ErrorModule,
     LoginModule,
     HeaderModule,
