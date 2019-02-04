@@ -1,10 +1,23 @@
 <ul>
-    <li [routerLinkActive]="['active']">
+    <!-- <li [routerLinkActive]="['active']">
         <a [routerLink]="['/app', {outlets: { 'appOutlet': ['dashboard'] }}]">
             <i class="fas fa-tachometer-alt"></i>dashboard</a>
     </li>
     <li [routerLinkActive]="['active']">
         <a [routerLink]="['/app', {outlets: { 'appOutlet': ['orders'] }}]">
+            <i class="fa fa-shopping-cart"></i>orders</a>
+    </li>
+    <li>
+        <a [routerLink]="['/login']" [queryParams]="{ logout: true }">
+            <i class="fas fa-sign-out-alt"></i>Logout</a>
+    </li> -->
+
+    <li [routerLinkActive]="['active']">
+        <a [routerLink]="['/app/dashboard']">
+            <i class="fas fa-tachometer-alt"></i>dashboard</a>
+    </li>
+    <li [routerLinkActive]="['active']">
+        <a [routerLink]="['/app/orders']">
             <i class="fa fa-shopping-cart"></i>orders</a>
     </li>
     <li>

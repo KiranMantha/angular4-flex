@@ -13,7 +13,8 @@ export class LoginComponent implements OnInit {
 
     public gotoApp():void {
         this.auth.setAuthToken('kiran');
-        this.router.navigate(['/app', {outlets: {'appOutlet': ['dashboard']}}]);
+        // this.router.navigate(['/app', {outlets: {'appOutlet': ['dashboard']}}]);
+        this.router.navigate(['/app/dashboard']);
     }
 
     ngOnInit(){

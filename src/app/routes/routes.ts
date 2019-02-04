@@ -11,9 +11,9 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'app', component: ContentComponent, children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-            { path: 'dashboard', component: DashboardComponent, outlet: 'appOutlet', canActivate:[AuthGuard] },
-            { path: 'orders', component: OrdersComponent, outlet: 'appOutlet', canActivate:[AuthGuard], data: { roles: ['ADMIN', ''] } },
-            { path: '**', component: ErrorRouteComponent, outlet: 'appOutlet', }
+            { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard] },
+            { path: 'orders', component: OrdersComponent, canActivate:[AuthGuard], data: { roles: ['ADMIN', ''] } },
+            { path: '**', component: ErrorRouteComponent }
         ]
     },
 

@@ -1,6 +1,6 @@
 //https://github.com/jdjuan/ng-notyf
 import { DynamicComponentResolverService } from './dynamic-component-resolver.service';
-import { Injectable, ComponentRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ModalComponent } from './modal-component/modal.component';
 import { IModalOptions, IModal } from './index';
 
@@ -9,9 +9,7 @@ export class ModalService {
   private _modalList: Array<any> = [];
   private _delay: number = 300;
 
-  constructor(private domService: DynamicComponentResolverService) {
-    debugger;
-  }
+  constructor(private domService: DynamicComponentResolverService) { }
 
   private addModal(options: IModalOptions): IModal {
     const modalRef = this.domService.createComponentRef(ModalComponent);
