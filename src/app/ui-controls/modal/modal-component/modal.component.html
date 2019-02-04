@@ -1,0 +1,8 @@
+<div class="modal" [ngClass]='modalClass'>
+	<div class="modal-content" @flyInOut *ngIf='!isModalClosed'>
+		<div>{{title}}<button *ngIf='!hideDefaultCloseButton' (click)='close($event)'>X</button></div>
+    <div>
+      <ng-container *ngTemplateOutlet="bodyTemplate"></ng-container>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "./dropdown";
 import { NotificationsModule } from "./notifications";
-import { NgxModalModule } from "./modal";
+import { NgModalModule } from "./modal";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const NgDropdown = [Dropdown, DropdownToggle, DropdownMenu, DropdownItem];
@@ -15,7 +15,8 @@ const NgDropdown = [Dropdown, DropdownToggle, DropdownMenu, DropdownItem];
     ],
     imports: [
         BrowserAnimationsModule,
-        NotificationsModule.forRoot()
+        NotificationsModule.forRoot(),
+        NgModalModule.forRoot()
     ]
 })
 export class UIModule { 
