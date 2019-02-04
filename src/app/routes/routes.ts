@@ -17,9 +17,11 @@ export const routes: Routes = [
         ]
     },
 
-    // { path: '', redirectTo: 'login', pathMatch: 'full' },
-    // { path: 'login', component: LoginComponent, outlet: 'login' },
-    // { path: 'dashboard', component: DashboardComponent, outlet: 'app', canActivate:[AuthGuard], data: { roles: ['ADMIN'] } },
-    // { path: 'orders', component: OrdersComponent, outlet: 'app', canActivate:[AuthGuard], data: { roles: ['ADMIN', ''] } },
-    // { path: '**', component: ErrorRouteComponent, outlet: 'app', }
+    // { path: 'app', component: ContentComponent, children: [
+    //         { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    //         { path: 'dashboard', component: DashboardComponent, outlet: 'appOutlet', canActivate:[AuthGuard] },
+    //         { path: 'orders', component: OrdersComponent, outlet: 'appOutlet', canActivate:[AuthGuard], data: { roles: ['ADMIN', ''] } },
+    //         { path: '**', component: ErrorRouteComponent outlet: 'appOutlet' }
+    //     ]
+    // },
 ]
