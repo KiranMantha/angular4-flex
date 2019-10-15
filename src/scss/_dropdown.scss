@@ -4,6 +4,7 @@
     position: relative;
     font-size: inherit;
     color: $font-color;
+    display: inline-block;
     *[data-toggle^="dropdown"] {
         & + .dropdown-menu {
             position: absolute;
