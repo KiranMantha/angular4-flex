@@ -18,6 +18,8 @@
     margin: 1.75rem auto;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
     border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 2px;
+    padding: 10px;
 
     @include breakpoint(sm) {
         width: auto;

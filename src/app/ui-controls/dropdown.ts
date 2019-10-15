@@ -1,4 +1,5 @@
-import { HostListener, Directive, Inject, forwardRef, ContentChild, Input, Output, EventEmitter } from "@angular/core";
+import { HostListener, Directive, Inject, forwardRef, ContentChild, Input, Output, EventEmitter, ElementRef } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Directive({
     selector: '[data-toggle="dropdown"]',
@@ -7,8 +8,10 @@ import { HostListener, Directive, Inject, forwardRef, ContentChild, Input, Outpu
     }
 })
 export class DropdownToggle {
-    constructor(@Inject(forwardRef(()=> Dropdown)) public dropdown) {
-
+    constructor(@Inject(forwardRef(()=> Dropdown)) public dropdown, private elem: ElementRef) {        
+        this.dropdown.textSubject.subscribe(text => {
+            elem.nativeElement.innerText = text;
+        });
     }
 
     toggleopen = (e, isoutside:boolean) => {
@@ -59,9 +62,15 @@ export class DropdownItem {
 export class Dropdown {
     @ContentChild(DropdownToggle) private _toggle: DropdownToggle;
     @Output() onSelected = new EventEmitter();
+    public textSubject: Subject<string> = new Subject();
     public isDropdownOpen: boolean = false;
 
     selectedItem = (item:any) => {
         this.onSelected.emit(item);
+        if(typeof item === 'string') {
+            this.textSubject.next(item);
+        } else {
+            this.textSubject.next(item.text);
+        }
     }
 }
